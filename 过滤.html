@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>过滤空格 大小写</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <style>
+    .baiBtn {
+      position: absolute;
+      top: 35%;
+      left: 30%;
+      text-align: center;
+      transform: translate(50%,50%);
+    }
+  </style>
+</head>
+<body>
+  <div class="baiBtn">
+    <input class="baiInput" type="text" value="[content]">
+    <button type="button" class="bai btn btn-primary" id="baiBtn 1">过滤空格</button>
+    <button type="button" class="bai btn btn-primary" id="baiBtn 2">对照</button>
+  </div>
+  <script>
+    var log = function(){
+      console.log.apply(console,arguments)
+    }
+    var input = document.querySelector('.baiInput')
+    var btnPrimar1 = document.getElementById('baiBtn 1')
+    var btnPrimar2 = document.getElementById('baiBtn 2')
+    btnPrimar1.addEventListener('click',function(){
+      input.value = input.value.replace(/(\s|\u00A0)+/g,"")
+      input.value = input.value.replace(/\b\w+\b/g,function(word){
+        return word.substring().toUpperCase()
+    })
+  })
+  </script>
+</body>
+</html>
