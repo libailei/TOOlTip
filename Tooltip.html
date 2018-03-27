@@ -7,10 +7,13 @@
     .baiTip {
       text-align: center;
 
+
     }
     .ms {
       position: relative;
       display: inline-block;
+      top: 55px;
+      font-size: 30px;
       }
     .ms:hover .sp {
       visibility: visible;
@@ -21,9 +24,14 @@
       color: white;
       width: 80px;
       padding: 5px 0;
-      border-radius: 25px;
+      border-radius: 20px;
       visibility: hidden;
+  }
 
+    .sp::after {
+      content: "";
+
+    }
       /*
       显示在底部 left: 0px;
       显示在左边 大小自己调 ：left:105% ;
@@ -39,8 +47,18 @@
           border-style: solid;
           border-color: transparent transparent black transparent;
         }
+
+        显示在右边 .sp::after {
+    content: "";
+    position: absolute;
+    border-style: solid;
+    border-color: transparent black transparent transparent;
+    right: 100%;
+    border-width: 7px;
+    top: 30%;
+    border-bottom: 5px; 箭头朝下；朝上是border-top
        */
-    }
+
 
 
   </style>
