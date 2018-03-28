@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/core.js"></script>
+  <style>
+  .sp {
+    position: absolute;
+    background: black;
+    color: white;
+    width: 200px;
+    padding: 5px 0;
+    border-radius: 20px;
+    left:385px;
+    color: red;
+    visibility: hidden;
+}
+
+  .sp::after {
+    content: "";
+    position: absolute;
+    border-style: solid;
+    border-color: transparent black transparent transparent;
+    right: 100%;
+    border-width: 7px;
+    top: 30%;
+    border-top: 5px;
+  }
+  </style>
+</head>
+<body>
+  <form class="pure-form pure-form-aligned" id="baiForm">
+    <fieldset>
+        <div class="pure-control-group">
+            <label for="name">用户</label>
+            <input onfocus="setStyle(this.id)" id="name" type="text" placeholder="Username"/>
+            <span class="baiTip sp">用户名不能为空</span>
+        </div>
+
+        <div class="pure-control-group">
+            <label for="password">密码</label>
+            <input onfocus="setStyle(this.id)" id="password" type="password" placeholder="Password">
+            <span class="baiTip sp">  密码不能为空</span>
+        </div>
+
+        <div class="pure-control-group">
+            <label for="email">邮件</label>
+            <input onfocus="setStyle(this.id)" id="email" type="email" placeholder="Email Address">
+            <span class="baiTip sp">  邮件不能为空</span>
+        </div>
+
+
+        <div class="pure-controls">
+            <label for="cb" class="pure-checkbox">
+                <input id="cb" type="checkbox">记住
+            </label>
+
+            <button type="button" class="btn btn-primary" id="btn-bai">Primary</button>
+        </div>
+    </fieldset>
+</form>
+<script>
+  var log = function(){
+    console.log.apply(console,arguments)
+  }
+  var baiBtn = document.getElementById('btn-bai')
+  var form = document.getElementById('baiForm')
+  var input = form.getElementsByTagName('input')
+  var span = form.getElementsByTagName('span')
+  log(span)
+  log(input)
+
+  baiBtn.addEventListener('click',function(){
+    checkNull()
+  })
+
+  var checkNull = function(){
+    for (var i = 0; i < span.length; i++) {
+      if (input[i].value.length ==  0) {
+        log(span[i].className)
+        span[i].style.visibility = "visible"
+      }
+    }
+  }
+
+   var setStyle = function(x){
+      var p =document.getElementById(x).nextElementSibling
+        p.style.visibility = "hidden"
+  }
+</script>
+</body>
+</html>
