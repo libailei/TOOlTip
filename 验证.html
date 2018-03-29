@@ -37,7 +37,7 @@
     <fieldset>
         <div class="pure-control-group">
             <label for="name">用户</label>
-            <input onfocus="setStyle(this.id)" id="name" type="text" placeholder="Username"/>
+            <input type="text" onkeyup="value=value.replace(/[ -~]/g,'')" onkeydown="if(event.keyCode==13)event.keyCode=9" onfocus="setStyle(this.id)" id="name" type="text" placeholder="Username"/>
             <span class="baiTip sp">用户名不能为空</span>
         </div>
 
