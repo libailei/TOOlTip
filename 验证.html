@@ -99,7 +99,15 @@
       }
     }
   }
+  var baiNoPaste = function() {
+    for (var i = 0; i < input.length; i++) {
+      input[i].onpaste = function(){
+        return false
+      }
+    }
+  }
   baiNoCopy()
+  baiNoPaste()
 </script>
 </body>
 </html>
