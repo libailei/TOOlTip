@@ -91,6 +91,15 @@
       var p =document.getElementById(x).nextElementSibling
         p.style.visibility = "hidden"
   }
+
+  var baiNoCopy = function() {
+    for (var i = 0; i < input.length; i++) {
+      input[i].oncopy = function(){
+        return false
+      }
+    }
+  }
+  baiNoCopy()
 </script>
 </body>
 </html>
