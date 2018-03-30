@@ -1,0 +1,16 @@
+<html>
+<body>
+<input type="text" onkeyup="baiLimite(this);value = value.substring(0,15)" id="bai">aa
+
+
+
+<script type="text/javascript">
+var baiLimite = function(a) {
+  var value = a.value.substring(0,15)
+console.log('value',value);
+console.log(value.length);
+  }
+
+</script>
+</body>
+</html>
