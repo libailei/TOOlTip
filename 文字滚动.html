@@ -11,14 +11,17 @@
     margin:0 auto
   }
 
-
+  /* 这是无缝的方式*/
   ul{padding:0;margin:0;overflow: hidden}
   ul li{height:24px;}
+  ul li:hover{
+    color: red;
+  }
   </style>
 </head>
 <body>
   <div id="baiList">
-    <ul id="baiUla">
+    <ul id="baiUla" onmouseenter='scrollStop()' onmouseleave='scrollCon()'>
       <li>滟滟随波千万里，何处春江无月明！</li>
       <li>江流宛转绕芳甸，月照花林皆似霰。</li>
       <li>空里流霜不觉飞，汀上白沙看不见。</li>
@@ -35,6 +38,7 @@
   var baiUla = document.getElementById('baiUla')
   var baiUlb = document.getElementById('baiUlb')
   var baiList = document.getElementById('baiList')
+  var speed = 50
   baiUlb.innerHTML = baiUla.innerHTML
   var scorllUp = function() {
     if (baiList.scrollTop >= baiUla.scrollHeight ) {
@@ -43,7 +47,14 @@
       baiList.scrollTop ++
     }
   }
-  setInterval('scorllUp()',10)
+  var p = setInterval('scorllUp()',speed)
+  var scrollStop = function() {
+    clearInterval(p)
+  }
+
+  var scrollCon = function() {
+    p = setInterval('scorllUp()',speed)
+  }
 
   </script>
 </body>
