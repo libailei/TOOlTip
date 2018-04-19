@@ -7,16 +7,21 @@
   <title>网格布局</title>
   <style>
 .game-board {
-  display: grid;
-  position: relative;
-  grid-template-rows:200px 200px 200px;
-  grid-template-columns:200px 200px 200px;
-  grid-gap: 4px;
+    display: grid;/* 网格除了content外并没有别的尺寸，下面设置的border值属于200px，代替了grid-gap,优点是间隔有颜色*/
+    width: 600px;
+    height: 600px;
+    grid-template-rows: 200px 200px 200px;
+    grid-template-columns: 200px 200px 200px;
+    background-color: #34495e;
+    color: #fff;
+    border: 6px solid #2c3e50;p: 4px;
 }
 .box {
-position: absolute;
-top: 50%;
-transform: translateY(50%);
+    font-size: 50px;
+    display: flex;
+    justify-content: center;    /* 水平居中，下面是垂直居中*/
+    align-items: center;
+    border: 6px solid #2c3e50;
 }
   </style>
 </head>
