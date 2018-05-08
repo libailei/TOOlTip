@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>盒模型</title>
+        <style>
+            div {
+                outline: 1px dashed red;
+            }
+            .bai-holder {
+                display: inline-block;
+                width: 100px;
+                height: 50px;
+                background: lightblue;
+            }
+            .bai-position {
+                display: inline-block;
+                height: 600px;
+            }
+            .bai-static {
+                position: static;
+            }
+            .bai-relative {
+                position: relative;
+            }
+            .bai-absolute {
+                position: absolute;
+            }
+            .bai-fixed {
+                position: fixed;
+                top: 0;
+                height: 100px;
+                background: yellow;
+            }
+        </style>
+    </head>
+    <body>
+        <!--
+        display 主要有 3 个值
+            block 独占一行，可以设置宽高
+            inline 和别人挤成一行,不可以设置宽高 即不能设置盒模型
+            inline-block 和别人挤在一行,可以设置宽高 即可以设置盒模型
+        -->
+
+        <div class="bai-block">
+            block
+        </div>
+        <button type="button">add</button>
+        <span>bai</span>
+        <input type="text"value="">
+        <button type="button">delete</button>
+        <div class="bai-inline">
+            inline
+        </div>
+
+        <div class="bai-holder">
+        </div>
+        <div class="bai-position">
+            <div class="bai-static">
+                static
+            </div>
+            <div class="bai-relative">
+                relative
+            </div>
+            <div class="bai-absolute">
+                absolute
+            </div>
+            <div class="bai-fixed">
+                fixed
+            </div>
+            <div class="bai-footer">
+                footer
+            </div>
+        </div>
+    </body>
+</html>
