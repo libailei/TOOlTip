@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>下拉选项</title>
+</head>
+<body>
+  <div class="demo">
+    <div class="add">
+      <input type='text' id="addInput">
+      <button id="addButton">add</button>
+    </div>
+    <select id="menu">
+      <option>川菜</option>
+      <option>饭菜</option>
+    </select>
+    <button class="delete">删除</button>
+  </div>
+  <script>
+    var addInput = document.querySelector('#addInput')
+    var addButton = document.getElementById('addButton')
+    var menu = document.getElementById('menu')
+    var del = document.querySelector('.delete')
+    var menu = document.getElementById('menu')
+    var checkValue = function() {
+      var len = addInput.value.length
+      if (len<1) {
+        alert('输入不能为空')
+        return false
+      } else {
+        return true
+      }
+    }
+
+    addButton.addEventListener('click',function(){
+      var t = addInput.value
+      if (checkValue()) {
+        menu.options.add(new Option(t,t))
+      }
+    })
+    del.addEventListener('click',function(){
+      var i = menu.selectedIndex
+      menu.options.remove(i)
+    })
+
+  </script>
+</body>
+</html>
