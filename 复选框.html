@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>全选框</title>
+    <style type="text/css">
+        .demo {
+           width: 200px;
+           margin: auto;
+           text-align: center;
+           background: linear-gradient(to top,blue,red);
+           box-shadow: 0 1px 0 black inset,0 1px 0 yellow;
+         }
+
+    </style>
+</head>
+<body>
+<div class="demo">
+    <h5><input type="checkbox" id="all" /><label>全选选项</label></h5>
+    <p><input type="checkbox" name="item" /><label>选项（一）</label></p>
+    <p><input type="checkbox" name="item" /><label>选项（二）</label></p>
+    <p><input type="checkbox" name="item" /><label>选项（三）</label></p>
+    <p><input type="checkbox" name="item" /><label>选项（四）</label></p>
+    <p><input type="checkbox" name="item" /><label>选项（五）</label></p>
+    <p><input type="checkbox" name="item" /><label>选项（六）</label></p>
+    <p><input type="checkbox" name="item" /><label>选项（七）</label></p>
+    <p><input type="checkbox" name="item" /><label>选项（八）</label></p>
+    <p><input type="checkbox" name="item" /><label>选项（九）</label></p>
+    <p><input type="checkbox" name="item" /><label>选项（十）</label></p>
+</div>
+<script>
+var log = function() {
+  console.log.apply(console,arguments)
+}
+var allBai = document.getElementById('all')
+var inputBai = document.getElementsByTagName('input')
+var len = inputBai.length
+//1.给全选添加点击事件，如果没有被全选上，那就全选checked=true，若都被选了，那么checked=false
+//2.给下面的每一次点击都要判断是否全选了，如果是全选则checked=true
+var each = function(arr,callback) {
+  for (var i = 1; i < arr.length; i++) {
+    callback.call(arr[i],i)
+  }
+}
+var choose = function(t) {
+  each(inputBai,function(i){
+    inputBai[i].checked = t
+  })
+}
+var checkLen = function() {
+  var n = 1
+  each(inputBai,function(i) {
+    if(this.checked === true) {
+      n ++
+    }
+  })
+  return n
+}
+allBai.onclick = function() {
+  choose(this.checked)
+}
+each(inputBai,function(i){
+  inputBai[i].onclick = function() {
+    if (!this.checked) {
+      allBai.checked = false
+    }
+    if (checkLen() == len) {
+      allBai.checked = true
+    }
+
+  }
+})
+</script>
+</body>
+</html>
